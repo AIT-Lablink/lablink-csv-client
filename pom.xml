@@ -143,6 +143,11 @@
               <descriptorRefs>
                 <descriptorRef>jar-with-dependencies</descriptorRef>
               </descriptorRefs>
+              <archive>
+                <manifest>
+                  <mainClass>at.ac.ait.lablink.clients.csvclient.CsvClient</mainClass>
+                </manifest>
+              </archive>
               <outputDirectory>target/assembly</outputDirectory>
             </configuration>
           </execution>
