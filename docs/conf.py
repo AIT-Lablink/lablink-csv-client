@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'lablink-csv-client'
+project = 'AIT Lablink CSV Client'
 copyright = 'AIT Austrian Institute of Technology GmbH'
 author = 'AIT Lablink Development Team'
 
@@ -39,6 +39,7 @@ release = ''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.extlinks',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -101,7 +102,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'lablink-csv-client'
+htmlhelp_basename = 'AITLablinkCSVClient'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -128,7 +129,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'lablink-csv-client.tex', 'Lablink CSV client',
+    (master_doc, 'AITLablinkCSVClient.tex', 'AIT Lablink CSV client',
      'AIT Lablink Development Team', 'manual'),
 ]
 
@@ -138,7 +139,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'csvclient', 'Lablink CSV client',
+    (master_doc, 'aitlablinkcsvclient', 'AIT Lablink CSV client',
      [author], 1)
 ]
 
@@ -149,8 +150,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'lablink-csv-client', 'Lablink CSV client',
-     author, 'lablink-csv-client', 'One line description of project.',
+    (master_doc, 'AITLablinkCSVClient', 'AIT Lablink CSV client',
+     author, 'AITLablinkCSVClient', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -174,6 +175,6 @@ epub_exclude_files = ['search.html']
 
 # External link library
 extlinks = {
-    'github_blob': ('https://github.com/AIT-Lablink/lablink-csv-client/blob/main/%s', ''),
-    'github_tree': ('https://github.com/AIT-Lablink/lablink-csv-client/tree/main/%s', ''),
+    'github_blob': ('https://github.com/AIT-Lablink/lablink-csv-client/blob/master/%s', ''),
+    'github_tree': ('https://github.com/AIT-Lablink/lablink-csv-client/tree/master/%s', ''),
 }
