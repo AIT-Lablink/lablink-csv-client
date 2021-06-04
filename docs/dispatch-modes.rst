@@ -15,7 +15,7 @@ The default format uses ``,`` as data delimiter and ``.`` as decimal separator.
 You can use other formats by specifying parameter ``CsvFormat`` in the `client configuration <configuration.html#client-configuration>`__ accordingly.
 
 The first line of the CSV source must be a header line, providing a name for each column.
-When selecting a CSV column as output for the CSV client, it has to be referred to by this name in parameter ``ColName`` in the `measurements configuration <configuration.html#measurements-configuration>`.
+When selecting a CSV column as output for the CSV client, it has to be referred to by this name in parameter ``ColName`` in the `measurements configuration <configuration.html#measurements-configuration>`__.
 
 .. seealso:: An **example** for a **fixed interval data source** can be found `here <examples.html#example-1-fixed-interval-data-source>`__.
 
@@ -37,7 +37,7 @@ This dispatch mode requires each line of the CSV source to be of the following f
    <device-name>;<datapoint-name>;<timestamp>;<value>
 
 All entries with the same ``<device-name>`` and ``<datapoint-name>`` belong to a **series of measurements**.
-When selecting a series of measurements as output for the CSV client, it has to be referred to as  ``<device-name>.<datapoint-name>`` in parameter ``ColName`` in the `measurements configuration <configuration.html#measurements-configuration>`.
+When selecting a series of measurements as output for the CSV client, it has to be referred to as  ``<device-name>.<datapoint-name>`` in parameter ``ColName`` in the `measurements configuration <configuration.html#measurements-configuration>`__.
 
 The timestamps have to be provided in `Unix time <https://en.wikipedia.org/wiki/Unix_time>`__.
 
