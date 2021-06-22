@@ -5,7 +5,7 @@
   <groupId>at.ac.ait.lablink.clients</groupId>
   <artifactId>csvclient</artifactId>
   <version>0.0.1</version>
-  <name>lablink-csv-client</name>
+  <name>Lablink CSV client</name>
   <description>This package provides a Lablink client that acts as a data source, using data stored in CSV format. </description>
   <url>https://github.com/AIT-Lablink/lablink-csv-client</url>
 
@@ -34,7 +34,7 @@
   <scm>
     <connection>scm:git:https://github.com/AIT-Lablink/lablink-csv-client.git</connection>
     <developerConnection>scm:git:https://github.com/AIT-Lablink/lablink-csv-client.git</developerConnection>
-    <url>http://github.com/AIT-Lablink/lablink-csv-client/tree/main</url>
+    <url>http://github.com/AIT-Lablink/lablink-csv-client/tree/master</url>
   </scm>
 
   <properties>
