@@ -24,7 +24,7 @@ REM Path to Java JAR file of standalone sync host.
 SET SYNC_JAR_FILE=%CSV_CLIENT_ROOT_DIR%\target\dependency\sync-0.0.1-jar-with-dependencies.jar
 
 REM Path to Java JAR file of config server.
-SET CONFIG_JAR_FILE=%CSV_CLIENT_ROOT_DIR%\target\dependency\config-0.0.1-jar-with-dependencies.jar
+SET CONFIG_JAR_FILE=%CSV_CLIENT_ROOT_DIR%\target\dependency\config-0.1.0-jar-with-dependencies.jar
 
 REM Path to Java JAR file of data plotter.
 SET PLOTTER_JAR_FILE=%CSV_CLIENT_ROOT_DIR%\target\dependency\plotter-0.0.2-jar-with-dependencies.jar
