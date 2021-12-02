@@ -38,9 +38,9 @@
   </scm>
 
   <properties>
-    <maven.compiler.source>13</maven.compiler.source>
-    <maven.compiler.target>13</maven.compiler.target>
-    <java.version>13</java.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -115,8 +115,9 @@
         <configuration>
           <show>private</show>
           <docfilessubdirs>true</docfilessubdirs>
-          <quiet>true</quiet>
-          <source>13</source>
+          <quiet>true</quiet>          
+          <source>8</source>
+          <!-- <source>13</source> -->
         </configuration>
         <executions>
           <execution>
