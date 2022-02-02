@@ -4,7 +4,7 @@
 
   <groupId>at.ac.ait.lablink.clients</groupId>
   <artifactId>csvclient</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <name>Lablink CSV client</name>
   <description>This package provides a Lablink client that acts as a data source, using data stored in CSV format. </description>
   <url>https://github.com/AIT-Lablink/lablink-csv-client</url>
@@ -219,14 +219,14 @@
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
-      <version>2.7</version>
+      <version>2.16.0</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
-      <version>2.7</version>
+      <version>2.16.0</version>
       <scope>compile</scope>
     </dependency>
     
@@ -234,7 +234,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.6.3</version>
+      <version>2.13.1</version>
     </dependency>
 
     <!-- Read and write files in CSV format -->
@@ -256,7 +256,7 @@
     <dependency>
       <groupId>at.ac.ait.lablink</groupId>
       <artifactId>core</artifactId>
-      <version>0.0.1</version>
+      <version>0.0.2</version>
       <scope>compile</scope>
     </dependency>
 
@@ -272,7 +272,7 @@
     <dependency>
       <groupId>at.ac.ait.lablink</groupId>
       <artifactId>config</artifactId>
-      <version>0.1.0</version>
+      <version>0.1.1</version>
       <classifier>jar-with-dependencies</classifier>
       <scope>provided</scope>
     </dependency>
@@ -280,7 +280,7 @@
     <dependency>
       <groupId>at.ac.ait.lablink.clients</groupId>
       <artifactId>dpbridge</artifactId>
-      <version>0.0.1</version>
+      <version>0.0.2</version>
       <classifier>jar-with-dependencies</classifier>
       <scope>provided</scope>
     </dependency>
@@ -288,7 +288,7 @@
     <dependency>
       <groupId>at.ac.ait.lablink.clients</groupId>
       <artifactId>plotter</artifactId>
-      <version>0.0.2</version>
+      <version>0.0.4</version>
       <classifier>jar-with-dependencies</classifier>
       <scope>provided</scope>
     </dependency>
