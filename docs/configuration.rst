@@ -27,14 +27,15 @@ Client configuration
 
   Configuration parameters for dispatch type ``TIME_VARIANT`` (timed data source):
 
-  :*StartFromDataTime*: When starting the client, this timestamp will be considered the starting time.
-    This means that no data entries with timestamps prior to this time will be sent. Data entries with timestamps occuring afterwards will scheduled relative to this timestamp.
-    The timestamp must be fomatted according to configuration parameter *DatetimeFormat*.
-  :*EndAtDataTime*:
-    No data entries with timestamps later than this timestamp will be sent.
-    The timestamp must be fomatted according to configuration parameter *DatetimeFormat*.
+  Only the time difference between two consecutive timestamps of the same series is used.
+  The first measurement of a series is sent after *StartAfter*.
+  Each following measurement is sent after that time difference, divided by *ScaleFactor*.
+
+  :*StartFromDataTime*: present in the configuration together with *EndAtDataTime* and *DatetimeFormat*.
+    These values are not applied when the CSV data is loaded or when measurements are sent.
+  :*EndAtDataTime*: see *StartFromDataTime*.
   :*DatetimeFormat*:
-    `date and time format <https://www.w3.org/TR/NOTE-datetime>`__ for configuration parameters *StartFromDataTime* and *EndAtDataTime*
+    `date and time format <https://www.w3.org/TR/NOTE-datetime>`__ associated with *StartFromDataTime* and *EndAtDataTime*.
 
 .. topic:: General client configuration parameters
 
@@ -67,8 +68,8 @@ Measurements configuration
   Measurements configuration parameters for dispatch type ``TIME_VARIANT`` (timed data source):
 
   :*ColName*: name of a series of measurements in the CSV source of the form ``<device-name>.<datapoint-name>``
-  :*ScaleFactor*: The time intervals between two consecutive measurements are determined by the associated timestamps in the CSV source.
-    This configuration parameter allows to scale these time intervals (optional, default: ``1``).
+  :*ScaleFactor*: divides the time difference between two consecutive timestamps of this series (optional, default: ``1``).
+    Only that time difference is relevant.
 
 
 Example configuration

@@ -1,5 +1,8 @@
+Installation
+============
+
 Maven
-=====
+-----
 
 The Lablink CSV client's compiled Java package is available on the |MCR|_.
 Use it in your local Maven_ setup by including the following dependency into your *pom.xml*:
@@ -9,13 +12,13 @@ Use it in your local Maven_ setup by including the following dependency into you
    <dependency>
      <groupId>at.ac.ait.lablink.clients</groupId>
      <artifactId>csvclient</artifactId>
-     <version>0.0.1</version>
+     <version>0.0.2</version>
    </dependency>
 
 .. note:: You may have to adapt this snippet to use the latest version, please check the |MCR|_.
 
 Building from source
-====================
+--------------------
 
 Installation from source requires a local **Java Development Kit** installation, for instance the `Oracle Java SE Development Kit 13 <https://www.oracle.com/technetwork/java/javase/downloads/index.html>`_ or the `OpenJDK <https://openjdk.java.net/>`_.
 
@@ -27,8 +30,20 @@ Check out the project and compile it with Maven_:
    cd lablink-csv-client
    mvnw clean package
 
-This should create JAR file *csvlient-<VERSION>-jar-with-dependencies.jar* in subdirectory *target/assembly*.
-Also, all additional Lablink resources needed for running the :doc:`examples <examples>` will be copied to directory *target/dependency*.
+This should create JAR file *csvclient-<VERSION>-jar-with-dependencies.jar* in subdirectory *target/assembly*.
+
+Docker image
+------------
+
+A ready-to-run image is published on `Docker Hub <https://hub.docker.com/r/ait1/lablink-csv-client>`_ as ``ait1/lablink-csv-client:latest``:
+
+.. code-block:: winbatch
+
+   docker pull ait1/lablink-csv-client:latest
+
+See :doc:`here <running>` for how to start the container.
+Building the image locally with :github_blob:`docker/build.cmd <docker/build.cmd>` tags the result with the same name.
+
 
 .. |MCR| replace:: Maven Central Repository
 .. _MCR: https://search.maven.org/artifact/at.ac.ait.lablink.clients/csvclient

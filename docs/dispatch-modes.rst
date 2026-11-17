@@ -23,7 +23,9 @@ Timed data source
 =================
 
 The data from the CSV source uses a dedicated format (see `below <#supported-csv-formats-for-timed-data-sources>`_), providing data values associated to timestamps, which are sent one-by-one as individual measurements.
-The timing of the measurements is determined by the timestamps associated to each data value.
+Only the time difference between two consecutive timestamps of the same series is used.
+The first measurement of a series is sent after the delay given by ``StartAfter``.
+Each following measurement is sent after that time difference, divided by ``ScaleFactor``.
 
 .. note:: This dispatch mode is enable by setting configuration parameter ``DispatchType`` to ``TIME_VARIANT``. 
 
@@ -40,6 +42,7 @@ All entries with the same ``<device-name>`` and ``<datapoint-name>`` belong to a
 When selecting a series of measurements as output for the CSV client, it has to be referred to as  ``<device-name>.<datapoint-name>`` in parameter ``ColName`` in the `measurements configuration <configuration.html#measurements-configuration>`__.
 
 The timestamps have to be provided in `Unix time <https://en.wikipedia.org/wiki/Unix_time>`__.
+The difference of two consecutive timestamps is the delay in milliseconds.
 
 .. seealso:: An **example** for a **timed data source** can be found `here <examples.html#example-2-timed-data-source>`__.
 

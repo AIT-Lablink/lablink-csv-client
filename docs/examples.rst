@@ -1,33 +1,22 @@
 Prerequisites
 =============
 
-Required Lablink resources
---------------------------
+The examples run with Docker Compose.
+These images are published on Docker Hub and are pulled automatically:
 
-The following Lablink resources are required:
+* ``ait1/lablink-config-server:latest``
+* ``ait1/lablink-datapoint-bridge:latest``
+* ``ait1/lablink-plotter:latest``
+* ``ait1/lablink-csv-client:latest``
 
-* `Configuration Server <https://ait-lablink.readthedocs.io/projects/lablink-config-server>`_: *config-0.0.1-jar-with-dependencies.jar*
-* `Datapoint Bridge <https://ait-lablink.readthedocs.io/projects/lablink-datapoint-bridge>`_: *dpbridge-0.0.1-jar-with-dependencies.jar*
-* `Lablink Plotter <https://ait-lablink.readthedocs.io/projects/lablink-plotter>`_: *plotter-0.0.1-jar-with-dependencies*
+Both examples publish the configuration server on port ``10101`` and the plotter on port ``8080``, so run only one of them at a time.
 
-When :doc:`building from source <installation>`, the corresponding JAR files will be copied to directory *target/dependency*.
+The stacks share :github_blob:`test-config.db <examples/config/test-config.db>` and :github_blob:`mosquitto.conf <examples/config/mosquitto.conf>`.
+Inside the containers the broker host is ``mqtt`` and the configuration server host is ``lablink-config``.
 
-
-Starting the configuration server
----------------------------------
-
-Start the configuration server by executing script :github_blob:`run_config.cmd <examples/0_config/run_config.cmd>` in subdirectory :github_tree:`examples/0_config`.
-This will make the content of database file *test-config.db* available via http://localhost:10101.
-
-.. note:: Once the server is running, you can view the available configurations in a web browser via http://localhost:10101.
+.. note:: Once a stack is running, the available configurations are listed at http://localhost:10101.
 
 .. seealso:: A convenient tool for viewing the content of the database file (and editing it for experimenting with the examples) is `DB Browser for SQLite <https://sqlitebrowser.org/>`_.
-
-
-MQTT broker
------------
-
-An **MQTT broker** is required for running the example, for instance `Eclipse Mosquitto <https://mosquitto.org/>`_ or `EMQ <http://emqtt.io/>`_.
 
 
 Example 1: Fixed interval data source
@@ -51,20 +40,21 @@ The CSV data looks like this:
    58.8,-99.5,40.7,6
    ...
 
-When sent to the plotter, the CSV client's output looks like this:
+The example setup is configured via the Compose file at :github_blob:`examples/1_fixed_interval/docker-compose.yml <examples/1_fixed_interval/docker-compose.yml>`.
+Using a local clone of the repository, change to folder `examples/1_fixed_interval` and run:
+
+.. code-block:: bash
+
+   docker compose up
+
+This starts Mosquitto, the configuration server, the datapoint bridge, the CSV client, and the plotter.
+
+The plotter window is accessible at http://localhost:8080.
+The measurements are plotted as a function of time, see below for the plotter view.
 
 .. image:: img/csv-client-example1.png
    :align: center
    :alt: Plotter view of CSV client output (example 1).
-
-All relevant scripts can be found in subdirectory :github_tree:`examples/1_fixed_interval`.
-To run the example, execute all scripts either in separate command prompt windows or by double-clicking:
-
-* :github_blob:`csv-fixed-interval.cmd <examples/1_fixed_interval/csv-fixed-interval.cmd>`: runs the CSV client, which will send data to the plotter
-* :github_blob:`dpb.cmd <examples/1_fixed_interval/dpb.cmd>`: runs the data point bridge service, connecting the CSV client and the plotter
-* :github_blob:`plot.cmd <examples/1_fixed_interval/plot.cmd>`: runs the plotter, which will plot incoming data to the screen
-
-.. note:: The scripts can be started in arbitrary order.
 
 
 Example 2: Timed data source
@@ -94,16 +84,17 @@ When sent to the plotter, the CSV client's output looks like this:
    :align: center
    :alt: Plotter view of CSV client output (example 2).
 
-.. note:: 
+.. note::
    The plotted results from both examples may look very similar at first glance.
    However, if you take a closer look you will notice that in the 2nd example the measurements are not received at a fixed rate.
    This difference becomes obvious when you run the examples and watch the measurements being plotted in real time.
 
-All relevant scripts can be found in subdirectory :github_tree:`examples/2_time_variant`.
-To run the example, execute all scripts either in separate command prompt windows or by double-clicking:
+The Compose file is :github_blob:`examples/2_time_variant/docker-compose.yml <examples/2_time_variant/docker-compose.yml>`.
+From :github_tree:`examples/2_time_variant`:
 
-* :github_blob:`csv-time-variant.cmd <examples/2_time_variant/csv-time-variant.cmd>`: runs the CSV client, which will send data to the plotter
-* :github_blob:`dpb.cmd <examples/2_time_variant/dpb.cmd>`: runs the data point bridge service, connecting the CSV client and the plotter
-* :github_blob:`plot.cmd <examples/2_time_variant/plot.cmd>`: runs the plotter, which will plot incoming data to the screen
+.. code-block:: bash
 
-.. note:: The scripts can be started in arbitrary order.
+   docker compose up
+
+This starts Mosquitto, the configuration server, the datapoint bridge, the CSV client, and the plotter.
+The plotter window is at http://localhost:8080.
